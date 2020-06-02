@@ -17,9 +17,10 @@ io.on('connection',(socket)=>{
 
     socket.broadcast.emit('newMessage',genmessage('Admin','new user joined'));
   
-    socket.on('createMessage',(newmessage)=>{
-        console.log('emailnew',newmessage);
+    socket.on('createMessage',(newmessage,callback)=>{
+        console.log('new message',newmessage);
         io.emit('newMessage',genmessage(newmessage.from,newmessage.text));
+        callback('this is from the server');
     });
     socket.on('disconnect',()=>{
         console.log('user was disconnected');
