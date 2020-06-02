@@ -26,7 +26,7 @@ socket.on('connect',function(){
  jQuery('#message-form').on('submit',function(e){
      e.preventDefault();
      socket.emit('createMessage',{
-         from: 'User',
+         from: jQuery('[name=name]').val(),
          text: jQuery('[name=message]').val()
      },function(){
 
