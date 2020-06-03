@@ -20,7 +20,7 @@ io.on('connection',(socket)=>{
     socket.on('createMessage',(newmessage,callback)=>{
         console.log('new message',newmessage);
         io.emit('newMessage',genmessage(newmessage.from,newmessage.text));
-        callback('this is from the server');
+        callback();
     });
 
     socket.on('createLocation',(coords)=>{
